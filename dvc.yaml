@@ -1,0 +1,27 @@
+vars:
+  - config.yaml
+
+artifacts:
+  ${artifact_name}:
+    path: ${model_path}
+    type: model
+    desc: "FuSAGNet model"
+
+stages:
+  detect_anomalies:
+    cmd: 'python3 main.py -results_path ${result_path}'
+    deps:
+      - runner/
+      - util/
+      - config.yaml
+      - data/swat/train.csv
+      - data/swat/test_100.csv
+      - main.py
+    params:
+      - config.yaml:
+          - model_path
+          - artifact_name
+          
+    outs:
+      - ${result_path}
+      - ${model_path}

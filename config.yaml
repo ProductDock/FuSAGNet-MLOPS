@@ -1,0 +1,11 @@
+# Runtime params
+#===================================
+train: True # train new model
+predict: True # use exsiting model
+# Directory where experiment results are stored.
+result_path: 'results/'
+
+# Path where model is stored.
+model_path: 'models/fusagnet.pt'
+# Artifact name
+artifact_name: 'fusagnet'
